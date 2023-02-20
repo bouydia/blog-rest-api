@@ -1,12 +1,16 @@
 const express = require('express')
 require('dotenv').config()
-const connectDB=require('./config/connectDB')
+const connectDB = require('./config/connectDB')
+const cors=require('cors')
 const { errorHandler, notFound } = require('./middlewares/error')
 // Init the app
 const app = express()
 
 // Connection to DB
 connectDB()
+
+//cors
+app.use(cors())
 
 // Middlewares
 app.use(express.urlencoded({ extended: true }))
